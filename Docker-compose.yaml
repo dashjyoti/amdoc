@@ -1,0 +1,11 @@
+version:'3'
+services:
+  nginx:
+    image: mynginx
+    container_name: mynginx
+    port: 
+      - 8082:80
+    volume:
+      - /var/lib/docker/volume/nginx_mnt/index.html:etc/share/nginx/html/index.html
+     
+  
