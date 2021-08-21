@@ -32,12 +32,12 @@ pipeline {
 			sh 'docker push 9398607064/nginx-docker:latest'
 		}
 	}
-	}*/
+	}
 	stage("Deploy") {
             steps {
                 sh "sudo rm -rf /usr/share/nginx/html/"
                 sh "sudo cp -r ${WORKSPACE}/build/ /usr/share/nginx/html/"
             }
-	}
+	}*/
     }
 }
