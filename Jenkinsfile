@@ -24,15 +24,15 @@ pipeline {
            }
        }
 
-	stage('Docker Push') {
+	/*stage('Docker Push') {
         	agent any
 	        steps {
-			withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'jyoti@123', usernameVariable: '9398607064')]) {
+			withCredentials([usernamePassword(credentialsId: 'docker', passwordVariable: 'password', usernameVariable: '9398607064')]) {
 			sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
 			sh 'docker push 9398607064/nginx-docker:latest'
 		}
 	}
-	}
+	}*/
 	stage("Deploy") {
             steps {
                 sh "sudo rm -rf /usr/share/nginx/html/"
