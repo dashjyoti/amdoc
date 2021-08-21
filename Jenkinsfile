@@ -1,7 +1,10 @@
 pipeline {
     agent any
-	
-    stages {
+	environment { 
+		registry = "9398607064/nginx-docker" 
+		registryCredential = 'dockerhub_id' 
+	}
+   stages {
 	stage('Clone repository'){
             steps {
                 echo 'Running build step'
@@ -23,7 +26,15 @@ pipeline {
               echo 'Running container'
            }
        }
-
+	stage('Deploy our image') { 
+            steps { 
+                script { 
+                    docker.withRegistry( '', registryCredential ) { 
+                        app.push() 
+                    }
+                } 
+            }
+        } 
 	/*stage('Docker Push') {
         	agent any
 	        steps {
