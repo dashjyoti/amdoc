@@ -1,7 +1,8 @@
 pipeline {
     agent any
 	environment { 
-		registry = "9398607064/nginx-docker" 
+		/*registry = "9398607064/nginx-docker" */
+		registry = "9398607064/nginx-dockerv1"
 		registryCredential = 'dockerhub_id' 
 	}
    stages {
@@ -15,7 +16,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    app = docker.build("9398607064/nginx-docker")
+                  /*  app = docker.build("9398607064/nginx-docker")*/
+		    app = docker.build("9398607064/nginx-dockerv1")
                 }
             }
         }
