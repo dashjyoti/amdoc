@@ -1,8 +1,8 @@
 pipeline {
     agent any
 	environment { 
-		/*registry = "9398607064/nginx-docker" */
-		registry = "9398607064/nginx-dockerv1"
+		registry = "9398607064/nginx-docker" 
+		/*registry = "9398607064/nginx-dockerv1"*/
 		registryCredential = 'dockerhub_id' 
 	}
    stages {
@@ -16,8 +16,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                  /*  app = docker.build("9398607064/nginx-docker")*/
-		    app = docker.build("9398607064/nginx-dockerv1")
+                      app = docker.build("9398607064/nginx-docker")
+		/*    app = docker.build("9398607064/nginx-dockerv1")*/
                 }
             }
         }
@@ -54,14 +54,17 @@ pipeline {
 	}*/
     }
 post {  
-         always {  
-             echo 'This will always run'  
-         }  
          success {  
              sh"echo 'This will run only if successful"
 	     mail to:"jyotidash246@gmail.com",
 		     subject:"SUCCESS:${currentBuild.fullDisplayName}",
 		     body:"yaa we pass..."
+         }  
+	failure {  
+             sh"echo 'This will run only if successful"
+	     mail to:"jyotidash246@gmail.com",
+		     subject:"FAILURE:${currentBuild.fullDisplayName}",
+		     body:"failll..."
          }  
          
  }
