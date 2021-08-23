@@ -51,31 +51,15 @@ pipeline {
             }
 	}*/
     }
-post {
-        failure {
-              mail to: 'jyotidash246@gmail.com',
-                 cc : 'prasenjit.m4u@gmail.com'
-                subject: "FAILED: Build ${env.JOB_NAME}", 
-                body: "Build failed ${env.JOB_NAME} 
-		       build no: ${env.BUILD_NUMBER}.
-		  \n\n
-		       View the log at:\n ${env.BUILD_URL}
-		  \n\n
-		       Blue Ocean:\n${env.RUN_DISPLAY_URL}"
-        }
-    
-		success {
-            mail to: 'jyotidash246@gmail.com',
-                 cc : 'prasenjit.m4u@gmail.com'
-                subject: "SUCCESSFUL: Build ${env.JOB_NAME}", 
-                body: "Build Successful ${env.JOB_NAME} build no: ${env.BUILD_NUMBER}\n\nView the log at:\n ${env.BUILD_URL}\n\nBlue Ocean:\n${env.RUN_DISPLAY_URL}"
-        }
-        
-        aborted {
-            mail to: 'jyotidash246@gmail.com',
-                 cc : 'prasenjit.m4u@gmail.com'
-                subject: "ABORTED: Build ${env.JOB_NAME}", 
-                body: "Build was aborted ${env.JOB_NAME} build no: ${env.BUILD_NUMBER}\n\nView the log at:\n ${env.BUILD_URL}\n\nBlue Ocean:\n${env.RUN_DISPLAY_URL}"
-        }
-	}
-}
+post {  
+         always {  
+             echo 'This will always run'  
+         }  
+         success {  
+             sh"echo 'This will run only if successful"
+	     mail to:"jyotidash246@gmail.com",
+		     subject:"SUCCESS:${currentBuild.fullDisplayName}",
+		     body:"yaa we pass..."
+         }  
+         
+ }
