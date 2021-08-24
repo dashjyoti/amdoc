@@ -38,7 +38,7 @@ pipeline {
             }
         }
    }
-}
+
 	/*stage('Docker Push') {
         	agent any
 	        steps {
@@ -53,8 +53,8 @@ pipeline {
                 sh "sudo rm -rf /usr/share/nginx/html/"
                 sh "sudo cp -r ${WORKSPACE}/build/ /usr/share/nginx/html/"
             }
-	}
-    }
+	}*/
+    
 post {  
          success {  
              sh"echo 'This will run only if successful"
@@ -69,5 +69,5 @@ post {
 		     body:"failll..."
          }  
          
- }*/
-
+ }
+}
