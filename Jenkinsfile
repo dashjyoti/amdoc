@@ -58,7 +58,7 @@ pipeline {
 post {  
          success {  
              sh "echo This will run only if successful"
-	     mail to:"jyotidash246@gmail.com",
+	     mail to:"jyotidash246@gmail.com", "prasenjit.m4u@gmail.com",
 		     subject:"SUCCESS:${currentBuild.fullDisplayName}",
 		     body:"yaa we pass..."
          }  
