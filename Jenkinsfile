@@ -61,6 +61,7 @@ post {
 	     mail to:"jyotidash246@gmail.com, prasenjit.m4u@gmail.com",
 		     subject:"SUCCESS:${currentBuild.fullDisplayName}",
 		     body:"yaa we pass..."
+		 
          }  
 	failure {  
              sh "echo This will run only if successful"
