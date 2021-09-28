@@ -4,7 +4,7 @@ services:
         container_name: mynginx
         image: 9398607064/nginx-docker
         ports:
-            - 8082:80
+            - 8083:80
 #            - 443:443
         volumes:
            - /amdoc/index.html:/usr/share/nginx/html/index.html
