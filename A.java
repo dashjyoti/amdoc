@@ -7,6 +7,6 @@ public class Loop
         for(i=4; i<=40; i++)
         {System.out.println("result of=" +i);
 
-    }
+    }))))))))00000099))))))}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 }
 }
